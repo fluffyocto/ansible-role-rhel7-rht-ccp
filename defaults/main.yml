@@ -1,6 +1,21 @@
 ---
 # defaults file for rhel7_rht_ccp
-
+var_accounts_password_warn_age_login_defs: '7'
+var_accounts_minimum_age_login_defs: '7'
+var_accounts_password_minlen_login_defs: '6'
+var_password_pam_unix_remember: '5'
+var_accounts_passwords_pam_faillock_deny: '5'
+var_password_pam_difok: '3'
+var_password_pam_lcredit: '-2'
+var_password_pam_ucredit: '-2'
+var_password_pam_retry: '3'
+var_password_pam_dcredit: '-1'
+var_password_pam_ocredit: '-2'
+var_selinux_policy_name: targeted
+var_selinux_state: enforcing
+sshd_listening_port: '22'
+var_sshd_set_keepalive: '0'
+sshd_idle_timeout_value: '300'
 accounts_minimum_age_login_defs: true
 accounts_password_minlen_login_defs: true
 accounts_password_pam_dcredit: true
@@ -56,6 +71,7 @@ package_aide_installed: true
 package_telnet_removed: true
 patch_strategy: true
 reboot_required: true
+require_singleuser_auth: true
 restrict_strategy: true
 security_patches_up_to_date: true
 selinux_policytype: true
@@ -68,7 +84,6 @@ set_password_hashing_algorithm_logindefs: true
 skip_ansible_lint: true
 sshd_allow_only_protocol2: true
 sshd_disable_empty_passwords: true
-sshd_disable_rhosts: true
 sshd_disable_root_login: true
 sshd_do_not_permit_user_env: true
 sshd_enable_warning_banner: true
